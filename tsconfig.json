@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false,
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "dom",
+      "es2015.promise",
+      "scripthost"
+    ],
+
+    "outFile": "dist/index.js",
+    "typeRoots": [
+      "@types",
+      "node_modules/@types",
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "types/**/*",
+    "src/**/*",
+  ],
+  "exclude": [
+    //"node_modules",
+  ]
+}
