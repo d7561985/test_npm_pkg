@@ -19,18 +19,18 @@
       "scripthost"
     ],
 
-    "outFile": "dist/index.js",
+//    "outFile": "dist/index.js",
     "typeRoots": [
       "@types",
-      "node_modules/@types",
+      "node_modules/@types"
     ],
     "types": [
-      "node"
+//      "node"
     ]
   },
   "include": [
     "types/**/*",
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
     //"node_modules",
