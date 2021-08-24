@@ -60,34 +60,6 @@ const browserifyConfigDebug = {
 };
 
 module.exports = function (gulp, options, plugins) {
-    function oldBuildGame(debug = false) {
-        let src_name = debug ? "index.js" : "index.js";
-        let path = options.folder;
-        let dest = 'dist/';
-        dest += debug ? 'debug/' : 'src/';
-
-        return browserifyInc(Object.assign({}, debug ? browserifyConfigDebug : browserifyConfig))
-            .transform(babelify, Object.assign({}, debug ? babelConfigDebug : babelConfig))
-            .transform('browserify-postcss', {
-                plugin: [
-                    'postcss-import',
-                    ['postcss-cssnext', {
-                        'browsers': [
-                            '> 1%',
-                            'last 2 versions',
-                            'Safari 8'
-                        ]
-                    }],
-                    'postcss-assets'
-                ],
-                inject: true,
-                extensions: ['.pcss']
-            })
-            .bundle()
-            .pipe(source('game.js'))
-            .pipe(gulp.dest(dest));
-    }
-
     function BrowserfyBuild(debug = false) {
         // console.log(__dirname)
         return browserify(Object.assign({}, debug ? browserifyConfigDebug : browserifyConfig))
@@ -106,6 +78,7 @@ module.exports = function (gulp, options, plugins) {
                     'postcss-assets'
                 ],
                 inject: true,
+                global: true,
                 extensions: ['.pcss']
             })
             .bundle()
@@ -115,7 +88,6 @@ module.exports = function (gulp, options, plugins) {
             //.pipe(uglify())
             .pipe(sourcemaps.write("./"))
             .pipe(gulp.dest(paths.scriptsDst));
-
     }
 
     function buildGame(debug = false) {
