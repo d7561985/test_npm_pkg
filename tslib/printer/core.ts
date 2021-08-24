@@ -27,6 +27,10 @@ export function sayHello(pages: any, pays: any) {
 }
 
 export function showHello(divName: string, name: string) {
+    if (window.GAME === undefined){
+        window.GAME = {demo: false}
+    }
+
     const elt = document.getElementById(divName);
     elt.innerText = `${name} -- ${window.GAME.demo}`
 }

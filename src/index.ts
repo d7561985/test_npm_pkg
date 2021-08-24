@@ -1,5 +1,6 @@
 import {sayHello, showHello} from "../tslib/printer/core"
 import "./styles/test.pcss"
+import "../game/game"
 
 window.onload = () => {
     showHello("greeting", "TypeScript");

@@ -90,30 +90,13 @@ module.exports = function (gulp, options, plugins) {
             .pipe(gulp.dest(paths.scriptsDst));
     }
 
-    function buildGame(debug = false) {
-        if (!debug)
-            process.env.NODE_ENV = 'production';
-
-        let tsProject = ts.createProject(paths.tsConfig, {
-            "outFile": debug ? paths.outDev : paths.outFinal,
-        });
-
-        return tsProject
-            .src()
-            .pipe(sourcemaps.init())
-            .pipe(tsProject())
-            .js
-            .pipe(uglify())
-            .pipe(sourcemaps.write('', {debug: debug, includeContent: debug, sourceRoot: './src'}))
-            .on('error', function (error) {
-                fancy_log.error(error.toString());
-            })
-            .pipe(gulp.dest(paths.scriptsDst));
-    }
+    gulp.task("copy-html", function () {
+        return gulp.src(["src/*.html"]).pipe(gulp.dest(paths.scriptsDst));
+    });
 
     gulp.task('build:release', () => BrowserfyBuild(false));
     gulp.task('build:debug', () => BrowserfyBuild(true));
 
-    gulp.task('dev', gulp.series('build:debug'));
+    gulp.task('dev', gulp.series('build:debug', "copy-html"));
     gulp.task('release', gulp.parallel([ 'build:release']));
 };

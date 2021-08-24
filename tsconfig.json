@@ -21,7 +21,6 @@
       "scripthost"
     ],
 
-//    "outFile": "dist/index.js",
     "typeRoots": [
       "@types",
       "node_modules/@types"

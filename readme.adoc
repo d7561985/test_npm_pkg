@@ -10,3 +10,4 @@ Goal:
 * pcss import
 * some woking stuff
 * global function declaration
+* phaser + spine plugin
