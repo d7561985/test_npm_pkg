@@ -11,7 +11,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": false,
-    "target": "es5",
+    "target": "ES2015",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "lib": [
       "es2015",
       "dom",
@@ -30,7 +32,8 @@
   },
   "include": [
     "types/**/*",
-    "src/**/*"
+    "src/**/*",
+    "tslib"
   ],
   "exclude": [
     //"node_modules",

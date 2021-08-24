@@ -2,3 +2,11 @@
 
 Possible fix:
 https://github.com/postcss/postcss
+
+Goal:
+ TS git package wihch contain own import TS logic with:
+
+* commonJS import package
+* pcss import
+* some woking stuff
+* global function declaration

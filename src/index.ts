@@ -1,7 +1,7 @@
-import './styles/test.pcss';
+import {sayHello, showHello} from "../tslib/printer/core"
+import "./styles/test.pcss"
 
-export function x(val: string){
-    console.log("HELLO" + val)
+window.onload = () => {
+    showHello("greeting", "TypeScript");
+    sayHello([{title: "T1", content: "<div>D2</div>>"}, {title: "T1", content: "<div>D2</div>>"}], "100500")
 }
-
-x("___OK")
